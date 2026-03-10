@@ -8,6 +8,8 @@
 - **Ce qu'il surveille** : L'utilisation du processeur (CPU), la mémoire vive, le nombre de visiteurs sur un site, ou encore le temps de réponse d'une base de données.
 - **Son point fort** : Les alertes. Si un serveur dépasse 95% d'utilisation, Prometheus le remarque immédiatement et peut envoyer un signal.
 
+*Remarque: par défaut ces metrics sont conservées 15 jours*
+
 ## Grafana
 
 *`Grafana` ne stocke aucune donnée. C'est une interface de visualisation.* 
@@ -48,12 +50,12 @@
 
 *bash*
 ```sh
-docker run --name prometheus -p 9090:9090 -v ${pwd}/config/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus:latest
+docker run -d --name prometheus -p 9090:9090 -v ${pwd}/config/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus:latest
 ```
 
 *powershell*
 ```powershell
-docker run --name prometheus -p 9090:9090 -v ${PWD}\config\prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus:latest
+docker run -d --name prometheus -p 9090:9090 -v ${PWD}\config\prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus:latest
 ```
 
 *Remarque: `pwd/PWD` (print working directory). c'est le dossier courant!*
